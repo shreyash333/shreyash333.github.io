@@ -146,6 +146,7 @@ const RESOURCES = {
 "assets/assets/images/Banner1.png": "131a20ad6e7440691a40d6ddcde8fa07",
 "assets/assets/images/Banner2.png": "3a0f2eb32abb989838f60a3d8a13f876",
 "assets/assets/images/Banner3.png": "13eb21550005adc50ee0d93d8191e270",
+"assets/assets/images/Banner4.png": "308d24f5ca64654ebfdb2718a1e945f6",
 "assets/assets/images/Banner5.png": "ea1ec05ef53fe36cf3276cdb17495bac",
 "assets/assets/images/Banner6.png": "4b09214443230eba8e0d9273e9188da9",
 "assets/assets/images/facebook.svg": "7257aa522d63add4dda595b899157a67",
@@ -173,9 +174,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "96771be737cca436dc7cb30be3909180",
-"/": "96771be737cca436dc7cb30be3909180",
-"main.dart.js": "f92beceafbe61818919de62d3d7014e0",
+"index.html": "2775a71b62c240d2a4782de66e31cc4b",
+"/": "2775a71b62c240d2a4782de66e31cc4b",
+"main.dart.js": "138c40bfcda326f531b2647512ac5cb0",
 "manifest.json": "e74af8957b5899dc6da961caee768ec9",
 "version.json": "009c9e65172e010890f7f65fde438006"
 };

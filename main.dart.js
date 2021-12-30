@@ -72427,7 +72427,7 @@ A.a(a6.fy,a4)
 e=t.p
 g=A.b([A.b2(A.b([f,A.ax(A.r(a3,A.Z(A.b([A.ax(new A.cZ(A.a91(A.Z(A.b([new A.H0(q,a3),new A.fB(a3),new A.GU(p,A.a(a6.fy,a4),a3),new A.fB(a3),new A.GV(o,A.a(a6.db,"academicList"),a3),new A.fB(a3),new A.H3(n,A.a(a6.id,"skillList"),a3),new A.fB(a3),new A.H2(m,A.a(a6.go,"projectList"),a3),new A.fB(a3),new A.H_(l,A.a(a6.fx,"experienceList"),a3),new A.fB(a3),new A.GW(k,A.a(a6.dx,"acheivementList"),a3),new A.fB(a3),new A.GY(j,A.a(a6.fr,"certificateList"),a3),new A.fB(a3),new A.GX(i,A.a(a6.dy,"blogList"),a3),new A.fB(a3),new A.H4(h,A.a(a6.k1,"socialAccountList"),A.b(["assets/images/instagram.svg","assets/images/twitter.svg","assets/images/facebook.svg","assets/images/github.svg","assets/images/youtube.svg","assets/images/linkedin.svg"],t.s),a3),new A.fB(a3),new A.GZ(g,A.a(a6.fy,a4),a3),new A.fB(a3)],e),B.k,B.l,B.i),r.db,B.J,a3,a3,B.ag),new A.afj(r),a3,t.eL),1)],e),B.k,B.l,B.i),B.e,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3),11)],e),B.k,B.i)],e)
 if(r.fy)g.push(A.r(a3,A.b2(A.b([A.ax(A.JT(A.b([A.r(a3,a3,B.e,B.aw,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3),A.r(a3,a3,B.e,$.ef(),a3,a3,a3,a3,a3,a3,a3,a3,a3,a3)],e),r.fr,B.J,a3,B.ag),1),A.ax(A.JT(A.b([A.r(a3,a3,B.e,$.ef(),a3,a3,a3,a3,a3,a3,a3,a3,a3,a3),A.r(a3,a3,B.e,B.aw,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3)],e),r.dy,B.J,a3,B.ag),1)],e),B.k,B.i),B.e,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3))
-if(r.fx){q=A.b2(A.b([A.ax(A.r(a3,A.eF(B.B,a3,a3,a3,B.ap,B.xg,a3,a3,new A.dm("assets/images/Banner4.png",a3,a3),a3,a3,!1,B.a3,a3),B.e,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3),1)],e),B.k,B.i)
+if(r.fx){q=A.b2(A.b([A.ax(A.r(a3,A.eF(B.B,a3,a3,a3,B.ap,B.xg,a3,a3,new A.dm("assets/images/Banner3.png",a3,a3),a3,a3,!1,B.a3,a3),B.e,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3),1)],e),B.k,B.i)
 p=$.ef()
 o=B.d.V(178.5)
 p=p.a
@@ -73106,7 +73106,7 @@ A.a(a6.fy,a4)
 e=t.p
 f=A.b([A.Z(A.b([new A.GG(q,p,o,n,m,l,k,j,i,h,g,f,r.db,a3),A.ax(new A.cZ(A.a91(A.Z(A.b([new A.Kw(p,a3),new A.fc(a3),new A.VA(o,A.a(a6.fy,a4),a3),new A.fc(a3),new A.Kq(n,A.a(a6.db,"academicList"),a3),new A.fc(a3),new A.Ky(m,A.a(a6.id,"skillList"),a3),new A.fc(a3),new A.Kx(l,A.a(a6.go,"projectList"),a3),new A.fc(a3),new A.Kv(k,A.a(a6.fx,"experienceList"),a3),new A.fc(a3),new A.Kr(j,A.a(a6.dx,"acheivementList"),a3),new A.fc(a3),new A.Kt(i,A.a(a6.fr,"certificateList"),a3),new A.fc(a3),new A.Ks(h,A.a(a6.dy,"blogList"),a3),new A.fc(a3),new A.Kz(g,A.a(a6.k1,"socialAccountList"),A.b(["assets/images/instagram.svg","assets/images/twitter.svg","assets/images/facebook.svg","assets/images/github.svg","assets/images/youtube.svg","assets/images/linkedin.svg"],t.s),a3),new A.fc(a3),new A.Ku(f,A.a(a6.fy,a4),a3),new A.fc(a3),new A.He(a6,a3),new A.fc(a3)],e),B.k,B.l,B.i),r.dx,B.J,a3,a3,B.ag),new A.aic(r),a3,t.eL),1)],e),B.k,B.l,B.i)],e)
 if(r.go)f.push(A.r(a3,A.Z(A.b([A.ax(A.JT(A.b([A.r(a3,a3,B.e,$.ef(),a3,a3,a3,a3,a3,a3,a3,a3,a3,a3),A.r(a3,a3,B.e,B.aw,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3)],e),r.fr,B.J,a3,B.ag),1),A.ax(A.JT(A.b([A.r(a3,a3,B.e,B.aw,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3),A.r(a3,a3,B.e,$.ef(),a3,a3,a3,a3,a3,a3,a3,a3,a3,a3)],e),r.fx,B.J,a3,B.ag),1)],e),B.k,B.l,B.i),B.e,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3))
-if(r.fy){q=A.Z(A.b([A.ax(A.r(a3,A.eF(B.B,a3,a3,a3,B.ap,B.bq,a3,a3,new A.dm("assets/images/Banner4.png",a3,a3),a3,a3,!1,B.a3,a3),B.e,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3),1)],e),B.k,B.l,B.i)
+if(r.fy){q=A.Z(A.b([A.ax(A.r(a3,A.eF(B.B,a3,a3,a3,B.ap,B.bq,a3,a3,new A.dm("assets/images/Banner3.png",a3,a3),a3,a3,!1,B.a3,a3),B.e,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3,a3),1)],e),B.k,B.l,B.i)
 p=$.vr()
 o=B.d.V(178.5)
 p=p.a
@@ -73246,37 +73246,36 @@ o=A.aj(l,o>>>16&255,o>>>8&255,o&255)
 l=new A.e().K(15)
 return A.r(s,A.iG(B.b2,A.b([n,A.r(s,A.b2(A.b([A.C(s,s,new A.e().K(20)),A.Z(A.b([A.C(s,new A.e().Y(200),s),A.N("Hello there,",s,s,s,s,A.V(s,s,$.aE(),s,s,s,s,s,"Oleo_Script",s,s,new A.e().K(65),s,B.Y,s,s,!0,s,s,s,s,s,s,s,s),B.E,s),A.C(s,new A.e().Y(15),s),A.Z(A.b([A.N("I am".toUpperCase(),s,s,s,s,A.V(s,s,$.T(),s,s,s,s,s,r,s,s,new A.e().K(40),s,B.y,s,s,!0,s,s,s,s,s,s,s,s),s,s),A.N("Shreyash \nSingh".toUpperCase(),s,s,s,s,A.V(s,s,$.aE(),s,s,s,s,s,r,s,s,new A.e().K(40),s,B.C,s,s,!0,s,s,s,s,s,s,s,s),s,s),A.N("and I am a".toUpperCase(),s,s,s,s,A.V(s,s,$.T(),s,s,s,s,s,r,s,s,new A.e().K(40),s,B.y,s,s,!0,s,s,s,s,s,s,s,s),s,s),A.N("Computer \nEngineer.".toUpperCase(),s,s,s,s,A.V(s,s,$.T(),s,s,s,s,s,r,s,s,new A.e().K(40),s,B.y,s,s,!0,s,s,s,s,s,s,s,s),s,s)],m),B.ak,B.l,B.i)],m),B.ak,B.l,B.i)],m),B.k,B.i),B.e,o,s,s,s,s,s,s,new A.U(l,0,0,0),s,s,s)],m),B.a1,B.ba),B.e,s,s,s,s,q*100-p,this.c,s,s,s,s,s)}}
 A.GG.prototype={
-A(a0,a1){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d=this,c=null,b=d.c,a=b===1
-if(a)s="Home"
-else if(b===2)s="About Me"
-else{if(b===3)r="Academics Details"
-else if(b===4)r="Skills"
-else if(b===5)r="Projects"
-else if(b===6)r="Experience"
-else if(b===7)r="Acheivements"
-else if(b===8)r="Certifications"
-else if(b===9)r="Blogs"
-else if(b===10)r="Social Accounts"
-else r=b===11?"Contact me":"Download Resume"
+A(a,a0){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e=this,d=null,c=e.c,b=c===1
+if(b)s="Home"
+else if(c===2)s="About Me"
+else{if(c===3)r="Academics Details"
+else if(c===4)r="Skills"
+else if(c===5)r="Projects"
+else if(c===6)r="Experience"
+else if(c===7)r="Acheivements"
+else if(c===8)r="Certifications"
+else if(c===9)r="Blogs"
+else if(c===10)r="Social Accounts"
+else r=c===11?"Contact me":"Download Resume"
 s=r}r=$.ef()
-q=A.r(c,c,B.e,$.aE(),c,c,c,new A.e().Y(10),c,c,c,c,c,c)
-p=A.C(c,c,new A.e().K(10))
-a=a&&!0
-o=b===2&&!0
-n=b===3&&!0
-m=b===4&&!0
-l=b===5&&!0
-k=b===6&&!0
-j=b===7&&!0
-i=b===8&&!0
-h=b===9&&!0
-g=b===10&&!0
-f=b===11&&!0
-b=b===12&&!0
-e=t.p
-b=A.a91(A.b2(A.b([p,new A.f8(a,B.nl,d.d,c),new A.f8(o,B.nn,d.e,c),new A.f8(n,B.np,d.f,c),new A.f8(m,B.nh,d.r,c),new A.f8(l,B.nk,d.x,c),new A.f8(k,B.ns,d.y,c),new A.f8(j,B.nq,d.z,c),new A.f8(i,B.ni,d.Q,c),new A.f8(h,B.nr,d.ch,c),new A.f8(g,B.nv,d.cx,c),new A.f8(f,B.nx,d.cy,c),new A.f8(b,B.CJ,d.db,c),A.C(c,c,new A.e().K(10))],e),B.k,B.i),c,B.J,c,c,B.af)
-f=$.aE()
-return A.r(c,A.Z(A.b([q,b,A.r(c,A.b2(A.b([A.C(c,c,new A.e().K(20)),A.N(">> "+s,c,c,c,c,A.V(c,c,$.T(),c,c,c,c,c,"eczar",c,c,new A.e().K(18),c,B.y,c,c,!0,c,c,c,c,c,c,c,c),c,c)],e),B.k,B.i),B.e,f,c,c,c,c,c,c,c,c,c,c)],e),B.k,B.l,B.i),B.e,r,c,c,c,c,c,c,c,c,c,c)}}
+q=A.C(d,d,new A.e().K(10))
+b=b&&!0
+p=c===2&&!0
+o=c===3&&!0
+n=c===4&&!0
+m=c===5&&!0
+l=c===6&&!0
+k=c===7&&!0
+j=c===8&&!0
+i=c===9&&!0
+h=c===10&&!0
+g=c===11&&!0
+c=c===12&&!0
+f=t.p
+c=A.a91(A.b2(A.b([q,new A.f8(b,B.nl,e.d,d),new A.f8(p,B.nn,e.e,d),new A.f8(o,B.np,e.f,d),new A.f8(n,B.nh,e.r,d),new A.f8(m,B.nk,e.x,d),new A.f8(l,B.ns,e.y,d),new A.f8(k,B.nq,e.z,d),new A.f8(j,B.ni,e.Q,d),new A.f8(i,B.nr,e.ch,d),new A.f8(h,B.nv,e.cx,d),new A.f8(g,B.nx,e.cy,d),new A.f8(c,B.CJ,e.db,d),A.C(d,d,new A.e().K(10))],f),B.k,B.i),d,B.J,d,d,B.af)
+g=$.aE()
+return A.r(d,A.Z(A.b([c,A.r(d,A.b2(A.b([A.C(d,d,new A.e().K(20)),A.N(">> "+s,d,d,d,d,A.V(d,d,$.T(),d,d,d,d,d,"eczar",d,d,new A.e().K(18),d,B.y,d,d,!0,d,d,d,d,d,d,d,d),d,d)],f),B.k,B.i),B.e,g,d,d,d,d,d,d,d,d,d,d)],f),B.k,B.l,B.i),B.e,r,d,d,d,d,d,d,d,d,d,d)}}
 A.f8.prototype={
 A(a,b){var s,r,q,p=null,o=this.c?$.aE():$.ef(),n=A.C(p,new A.e().Y(15),p),m=A.C(p,p,new A.e().K(15)),l=$.T(),k=new A.e().K(22)
 k=A.w8(l,A.dA(this.d,$.aE(),new A.e().K(32)),k)

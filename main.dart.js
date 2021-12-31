@@ -72970,7 +72970,7 @@ return new A.l7(q,s,r==null?"":r)},
 $S:481}
 A.VA.prototype={
 A(a,b){var s=null,r=this.d
-return A.r(s,A.Z(A.b([A.C(s,new A.e().Y(30),s),new A.JQ("About me",s),A.C(s,new A.e().Y(20),s),new A.Kd(r.r,s),A.C(s,new A.e().Y(20),s),new A.M2('"'+r.f+'"',s),A.C(s,new A.e().Y(70),s)],t.p),B.k,B.l,B.i),B.e,s,s,s,s,s,this.c,s,s,s,s,s)}}
+return A.r(s,A.Z(A.b([A.C(s,new A.e().Y(30),s),new A.JQ("About me",s),A.C(s,new A.e().Y(20),s),new A.Kd(r.r,s),A.C(s,new A.e().Y(35),s),new A.M2('"'+r.f+'"',s),A.C(s,new A.e().Y(70),s)],t.p),B.k,B.l,B.i),B.e,s,s,s,s,s,this.c,s,s,s,s,s)}}
 A.JQ.prototype={
 A(a,b){var s=null,r=A.N(this.c,s,s,s,s,A.V(s,s,$.aE(),s,s,s,s,s,"Oleo_Script",s,s,new A.e().K(40),s,B.Y,s,s,!0,s,s,s,s,s,s,s,s),B.E,s),q=A.C(s,new A.e().Y(10),s),p=new A.e().K(30)
 return A.r(s,A.Z(A.b([r,q,new A.aX(new A.U(p,0,p,0),A.r(s,s,B.e,$.T(),s,s,s,new A.e().Y(1),s,s,s,s,s,s),s)],t.p),B.k,B.l,B.i),B.e,s,s,s,s,s,s,s,s,s,s,s)}}
@@ -73019,7 +73019,7 @@ A.JA.prototype={
 A(a,b){var s=null,r=A.N(this.c,s,s,s,s,A.V(s,s,$.aE(),s,s,s,s,s,"Oleo_Script",s,s,new A.e().K(40),s,B.Y,s,s,!0,s,s,s,s,s,s,s,s),B.E,s),q=A.C(s,new A.e().Y(10),s),p=new A.e().K(30)
 return A.r(s,A.Z(A.b([r,q,new A.aX(new A.U(p,0,p,0),A.r(s,s,B.e,$.T(),s,s,s,new A.e().Y(1),s,s,s,s,s,s),s)],t.p),B.k,B.l,B.i),B.e,s,s,s,s,s,s,s,s,s,s,s)}}
 A.FN.prototype={
-A(a,b){var s,r,q,p,o,n,m,l,k,j=null,i=new A.e().Y(10),h=new A.e().K(20),g=new A.e().Y(10),f=new A.e().K(10),e=new A.e().K(350),d=new A.e().K(5)
+A(a,b){var s,r,q,p,o,n,m,l,k,j=null,i=new A.e().Y(15),h=new A.e().K(20),g=new A.e().Y(10),f=new A.e().K(10),e=new A.e().K(350),d=new A.e().K(5)
 d=A.hn(new A.bk(d,d))
 s=$.T()
 r=A.b([new A.dN(0.5,B.bf,B.cM,new A.l(1,1),5)],t.J)
@@ -73294,7 +73294,7 @@ A(a,b){var s=null,r=$.ef()
 return A.tf(s,s,A.mL(!0,A.r(s,A.dv(A.Z(A.b([A.aw(A.r(s,s,B.e,s,s,s,s,s,s,s,s,s,s,s),1),A.asP("assets/images/loading2.gif",B.m6,new A.e().K(200),new A.e().K(200)),A.N("loading...",s,s,s,s,A.V(s,s,$.T(),s,s,s,s,s,"Poppins",s,s,new A.e().K(20),s,B.C,s,s,!0,s,s,s,s,s,s,s,s),B.aI,s),A.aw(A.r(s,s,B.e,s,s,s,s,s,s,s,s,s,s,s),1)],t.p),B.k,B.l,B.i),s,s),B.e,r,s,s,s,s,s,s,s,s,s,s),B.a2,!0),s,s)}}
 A.Kx.prototype={
 A(a,b){var s,r,q,p,o,n,m,l,k=null,j=A.b([A.C(k,new A.e().Y(30),k),new A.JN("Projects",k),A.C(k,new A.e().Y(20),k)],t.p)
-for(s=this.d.b,r=0;r<s.length;++r){q=B.d.V(1.4218009478672986*$.d8)
+for(s=this.d.b,r=0;r<s.length;++r){q=B.d.V(1.7772511848341233*$.d8)
 p=s[r]
 o=p.a
 n=p.f
@@ -73334,7 +73334,7 @@ $S:0}
 A.Ky.prototype={
 A(a,b){var s,r,q,p,o,n=null,m=A.C(n,new A.e().Y(30),n),l=A.C(n,new A.e().Y(20),n),k=A.aw(A.r(n,n,B.e,n,n,n,n,n,n,n,n,n,n,n),1),j=t.p,i=A.b([],j)
 for(s=this.d.b,r=0;r<s.length;r+=2){q=s[r]
-i.push(A.Z(A.b([new A.Ak(q.a,q.b,q.c,n),new A.cj(n,B.d.V(2.3696682464454977*$.d8),n,n)],j),B.k,B.l,B.i))}i=A.Z(i,B.k,B.l,B.i)
+i.push(A.Z(A.b([new A.Ak(q.a,q.b,q.c,n),new A.cj(n,B.d.V(3.5545023696682465*$.d8),n,n)],j),B.k,B.l,B.i))}i=A.Z(i,B.k,B.l,B.i)
 q=A.C(n,n,new A.e().K(20))
 p=A.b([],j)
 for(r=1;r<s.length;r+=2){o=s[r]
@@ -73369,13 +73369,13 @@ A(a,b){var s,r,q,p,o,n,m,l=null,k=A.C(l,new A.e().Y(30),l),j=A.C(l,new A.e().Y(2
 for(s=this.d.b,r=this.e,q=0;q<s.length;q+=2){p=s[q]
 o=p.a
 p=p.c
-g.push(A.Z(A.b([new A.As(o,r[q],p,l),new A.cj(l,B.d.V(2.3696682464454977*$.d8),l,l)],h),B.k,B.l,B.i))}g=A.Z(g,B.k,B.l,B.i)
+g.push(A.Z(A.b([new A.As(o,r[q],p,l),new A.cj(l,B.d.V(3.5545023696682465*$.d8),l,l)],h),B.k,B.l,B.i))}g=A.Z(g,B.k,B.l,B.i)
 p=A.C(l,l,new A.e().K(40))
 o=A.b([],h)
 for(q=1;q<s.length;q+=2){n=s[q]
 m=n.a
 n=n.c
-o.push(A.Z(A.b([new A.As(m,r[q],n,l),new A.cj(l,B.d.V(2.3696682464454977*$.d8),l,l)],h),B.k,B.l,B.i))}return A.r(l,A.Z(A.b([k,new A.Jz("Social Media",l),j,A.b2(A.b([i,g,p,A.Z(o,B.k,B.l,B.i),A.aw(A.r(l,l,B.e,l,l,l,l,l,l,l,l,l,l,l),1)],h),B.k,B.i),A.C(l,new A.e().Y(70),l)],h),B.k,B.l,B.i),B.e,l,l,l,l,l,this.c,l,l,l,l,l)}}
+o.push(A.Z(A.b([new A.As(m,r[q],n,l),new A.cj(l,B.d.V(3.5545023696682465*$.d8),l,l)],h),B.k,B.l,B.i))}return A.r(l,A.Z(A.b([k,new A.Jz("Social Media",l),j,A.b2(A.b([i,g,p,A.Z(o,B.k,B.l,B.i),A.aw(A.r(l,l,B.e,l,l,l,l,l,l,l,l,l,l,l),1)],h),B.k,B.i),A.C(l,new A.e().Y(70),l)],h),B.k,B.l,B.i),B.e,l,l,l,l,l,this.c,l,l,l,l,l)}}
 A.Jz.prototype={
 A(a,b){var s=null,r=A.N(this.c,s,s,s,s,A.V(s,s,$.aE(),s,s,s,s,s,"Oleo_Script",s,s,new A.e().K(40),s,B.Y,s,s,!0,s,s,s,s,s,s,s,s),B.E,s),q=A.C(s,new A.e().Y(10),s),p=new A.e().K(30)
 return A.r(s,A.Z(A.b([r,q,new A.aX(new A.U(p,0,p,0),A.r(s,s,B.e,$.T(),s,s,s,new A.e().Y(1),s,s,s,s,s,s),s)],t.p),B.k,B.l,B.i),B.e,s,s,s,s,s,s,s,s,s,s,s)}}

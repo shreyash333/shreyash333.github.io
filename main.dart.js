@@ -72296,12 +72296,12 @@ A.JH.prototype={
 A(a,b){var s=null,r=A.N(this.c,s,s,s,s,A.V(s,s,$.aE(),s,s,s,s,s,"Oleo_Script",s,s,new A.e().I(30),s,B.Y,s,s,!0,s,s,s,s,s,s,s,s),B.E,s),q=A.D(s,new A.e().I(10),s),p=new A.e().az(150)
 return A.r(s,A.Z(A.b([r,q,new A.aX(new A.U(p,0,p,0),A.r(s,s,B.e,$.T(),s,s,s,new A.e().I(1),s,s,s,s,s,s),s)],t.p),B.k,B.l,B.i),B.e,s,s,s,s,s,s,s,s,s,s,s)}}
 A.Kc.prototype={
-A(a,b){var s,r,q,p=null,o=new A.e().az(200),n=new A.e().I(200),m=A.WK($.aE(),new A.e().az(20)),l=new A.e().az(15)
+A(a,b){var s,r,q,p=null,o=new A.e().az(200),n=new A.e().I(200),m=A.WK($.aE(),new A.e().az(15)),l=new A.e().az(15)
 l=A.hn(new A.bk(l,l))
 s=$.T()
 r=A.b([new A.dn(0.5,B.aU,s,new A.l(1,1),5)],t.G)
 q=t.p
-return A.r(p,A.Z(A.b([new A.aX(new A.U(o,0,o,0),A.b2(A.b([A.r(p,A.eE(B.B,p,p,p,B.ap,B.bq,p,p,new A.dm("assets/images/mypic2.png",p,p),p,p,!1,B.a3,p),B.e,p,p,new A.cf(s,p,m,l,r,p,B.ai),p,n,p,p,p,p,p,p),A.D(p,p,new A.e().az(80)),A.aw(A.N(this.c,p,p,p,p,A.V(p,p,$.T(),p,p,p,p,p,"slabo",p,p,new A.e().I(12),p,B.q,p,p,!0,p,p,p,p,p,p,p,p),B.K,p),1),A.D(p,p,new A.e().az(1))],q),B.k,B.i),p)],q),B.k,B.l,B.i),B.e,p,p,p,p,p,p,p,p,p,p,p)}}
+return A.r(p,A.Z(A.b([new A.aX(new A.U(o,0,o,0),A.b2(A.b([A.r(p,A.eE(B.B,p,p,p,B.ap,B.bq,p,p,new A.dm("assets/images/mypic2.png",p,p),p,p,!1,B.a3,p),B.e,p,p,new A.cf(s,p,m,l,r,p,B.ai),p,n,p,p,p,p,p,p),A.D(p,p,new A.e().az(100)),A.aw(A.N(this.c,p,p,p,p,A.V(p,p,$.T(),p,p,p,p,p,"slabo",p,p,new A.e().I(12),p,B.q,p,p,!0,p,p,p,p,p,p,p,p),B.K,p),1),A.D(p,p,new A.e().az(1))],q),B.k,B.i),p)],q),B.k,B.l,B.i),B.e,p,p,p,p,p,p,p,p,p,p,p)}}
 A.M1.prototype={
 A(a,b){var s=null,r=new A.e().az(200),q=A.N("I BELIEVE IN",s,s,s,s,A.V(s,s,$.T(),s,s,s,s,s,"slabo",s,s,new A.e().I(12),s,B.q,s,s,!0,s,s,s,s,s,s,s,s),B.aI,s),p=new A.e().az(250)
 return A.r(s,A.Z(A.b([new A.aX(new A.U(r,0,r,0),q,s),new A.aX(new A.U(p,0,p,0),A.N(this.c,s,s,s,s,A.V(s,s,$.aE(),s,s,s,s,s,"spacemono",s,s,new A.e().I(12),s,B.C,s,s,!0,s,s,s,s,s,s,s,s),B.aI,s),s)],t.p),B.k,B.l,B.i),B.e,s,s,s,s,s,s,s,s,s,s,s)}}
@@ -72980,7 +72980,7 @@ A.JO.prototype={
 A(a,b){var s=null,r=A.N(this.c,s,s,s,s,A.V(s,s,$.aE(),s,s,s,s,s,"Oleo_Script",s,s,new A.e().K(40),s,B.Y,s,s,!0,s,s,s,s,s,s,s,s),B.E,s),q=A.D(s,new A.e().Y(10),s),p=new A.e().K(30)
 return A.r(s,A.Z(A.b([r,q,new A.aX(new A.U(p,0,p,0),A.r(s,s,B.e,$.T(),s,s,s,new A.e().Y(1),s,s,s,s,s,s),s)],t.p),B.k,B.l,B.i),B.e,s,s,s,s,s,s,s,s,s,s,s)}}
 A.Kb.prototype={
-A(a,b){var s,r,q=null,p=A.D(q,new A.e().Y(20),q),o=new A.e().Y(350),n=A.WK($.aE(),new A.e().K(5)),m=new A.e().K(15)
+A(a,b){var s,r,q=null,p=A.D(q,new A.e().Y(20),q),o=new A.e().Y(350),n=A.WK($.aE(),new A.e().K(5)),m=new A.e().K(8)
 m=A.hn(new A.bk(m,m))
 s=$.T()
 r=A.b([new A.dn(0.5,B.aU,s,new A.l(1,1),3)],t.G)

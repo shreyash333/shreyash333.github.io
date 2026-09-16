@@ -176,6 +176,11 @@ const portfolioData = {
     ],
     "blogs": [
         {
+            "title": "15 AI Concepts I Wish Someone Had Explained Me Simply",
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/pulse/15-ai-concepts-i-wish-someone-had-explained-me-simply-shreyash-singh-y9p2f"
+        },
+        {
             "title": "AI LLM Transformer",
             "platform": "LinkedIn",
             "url": "https://www.linkedin.com/posts/shreyash-singh-26b555166_ai-llm-transformer-share-7487956444479291394-Bm99/"

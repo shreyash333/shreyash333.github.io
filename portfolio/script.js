@@ -245,6 +245,7 @@ function populateWebsite(data) {
                     <h4>${cert.issuer}</h4>
                     <p class="year">${cert.date}</p>
                 </div>
+                ${cert.url ? `<div class="pub-links" style="margin-top: 10px;"><a href="${cert.url}" target="_blank" rel="noopener noreferrer" class="btn-outline">View Credential <i class="fas fa-external-link-alt"></i></a></div>` : ''}
             </div>
         `).join('');
     } else {

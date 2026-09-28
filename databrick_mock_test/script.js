@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (timeRemaining <= 0) {
                 clearInterval(timerInterval);
+                alert("Time's up! Your test has been automatically submitted.");
                 submitTest();
             }
         }, 1000);

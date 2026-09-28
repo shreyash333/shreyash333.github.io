@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databricks Mock Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">Databricks Mock Test</div>
+            <div class="timer" id="timerDisplay">90:00</div>
+        </header>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <h1>Ready to test your Databricks knowledge?</h1>
+            <p>55 Questions • 90 Minutes • 70% to Pass</p>
+            <button id="startBtn" class="btn primary">Start Test</button>
+        </div>
+
+        <!-- Test Screen -->
+        <div id="testScreen" class="screen">
+            <div class="test-layout">
+                <div class="question-container">
+                    <div class="progress-bar">
+                        <div class="progress" id="progressFill"></div>
+                    </div>
+                    <div class="question-header">
+                        <span id="questionNumber">Question 1 of 55</span>
+                        <span id="questionType" class="badge">Single Choice</span>
+                    </div>
+                    <h2 id="questionText">Loading question...</h2>
+                    <div id="optionsContainer" class="options-grid">
+                        <!-- Options injected via JS -->
+                    </div>
+                    <div class="navigation-buttons">
+                        <button id="prevBtn" class="btn secondary" disabled>Previous</button>
+                        <button id="nextBtn" class="btn primary">Next</button>
+                        <button id="submitBtn" class="btn danger hidden">Submit Test</button>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <h3>Question Navigator</h3>
+                    <div id="questionGrid" class="question-grid">
+                        <!-- Grid items injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="screen">
+            <div class="result-card">
+                <h1 id="resultStatus">Pass</h1>
+                <div class="score-circle">
+                    <span id="scorePercentage">0%</span>
+                </div>
+                <p id="scoreDetails">You scored X out of 55.</p>
+                <button id="reviewBtn" class="btn secondary">Review Answers</button>
+                <button id="restartBtn" class="btn primary">Restart Test</button>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="reviewScreen" class="screen">
+            <div class="review-header">
+                <h2>Test Review</h2>
+                <button id="closeReviewBtn" class="btn secondary">Close Review</button>
+            </div>
+            <div id="reviewContainer" class="review-container">
+                <!-- Review items injected via JS -->
+            </div>
+        </div>
+    </div>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

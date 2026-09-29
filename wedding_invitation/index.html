@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Destination Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Welcome Overlay (First Page) -->
+    <div id="welcome-screen">
+        <div class="welcome-bg"></div>
+        <div class="welcome-overlay"></div>
+        <div class="welcome-content intricate-border">
+            <div class="mandala-accent top">✧</div>
+            <p id="welcome-pre" class="welcome-pre"></p>
+            <h1 id="welcome-title" class="welcome-title"></h1>
+            <p id="welcome-date" class="welcome-date"></p>
+            <div class="mandala-accent bottom">✧</div>
+            <button id="open-btn" class="elegant-btn outline-btn"></button>
+            <p id="error-msg" style="color:red; font-size:12px; margin-top:10px; display:none;"></p>
+        </div>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Mute Button (Starts hidden, appears after entering) -->
+    <button id="music-toggle" class="floating-btn corner-btn" style="display:none; z-index:9999;">
+        <svg class="music-icon" viewBox="0 0 24 24" width="24" height="24">
+            <!-- default to sound off icon until played -->
+            <path id="vol-icon" fill="currentColor" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+        </svg>
+    </button>
+
+    <!-- Live Wedding Updates -->
+    <div class="live-updates">
+        <marquee id="marquee-text" scrollamount="5"></marquee>
+    </div>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero scroll-reveal">
+            <div class="hero-image-container">
+                <img src="image1.jpg" alt="Couple" class="hero-img">
+            </div>
+            <div class="hero-text">
+                <p id="hero-overline" class="overline"></p>
+                <h2 id="hero-names" class="hero-names"></h2>
+                <p id="hero-quote" class="hero-quote"></p>
+            </div>
+        </section>
+
+        <!-- Our Story ❤️ -->
+        <section class="story-section scroll-reveal">
+            <div class="container text-center">
+                <h2 class="section-heading">Our Story ❤️</h2>
+                <p id="story-text" class="story-text"></p>
+            </div>
+        </section>
+
+        <!-- Calendar & Countdown -->
+        <section class="calendar-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-heading">Save the Dates</h2>
+                <div class="calendar-wrapper">
+                    <div class="calendar-card">
+                        <h3 class="cal-title">January 2027</h3>
+                        <table class="calendar">
+                            <tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr>
+                            <tr><td></td><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td></tr>
+                            <tr><td>4</td><td>5</td><td>6</td>
+                                <td><div class="heart-date highlight">7</div></td>
+                                <td><div class="heart-date highlight">8</div></td>
+                                <td><div class="heart-date highlight">9</div></td>
+                                <td><div class="heart-date main">10</div></td>
+                            </tr>
+                            <tr><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td></tr>
+                            <tr><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td></tr>
+                            <tr><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr>
+                        </table>
+                        <p class="cal-legend">
+                            <span class="dot main"></span> Wedding Day &nbsp;&nbsp;
+                            <span class="dot highlight"></span> Pre-Wedding
+                        </p>
+                    </div>
+                    
+                    <div class="countdown-card">
+                        <h3 class="cal-title">Countdown</h3>
+                        <div id="countdown" class="countdown-flex"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Family -->
+        <section class="family-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-heading">Meet the Family</h2>
+                <div class="family-grid">
+                    <div class="family-card bride-family">
+                        <h3>Bride's Family</h3>
+                        <ul id="bride-family-list" class="family-list"></ul>
+                    </div>
+                    <div class="family-card groom-family">
+                        <h3>Groom's Family</h3>
+                        <ul id="groom-family-list" class="family-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wedding Events -->
+        <section class="itinerary-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-heading">Wedding Events</h2>
+                <div id="events-grid" class="itinerary-grid"></div>
+            </div>
+        </section>
+
+        <!-- Wedding Day Schedule -->
+        <section class="timeline-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-heading">Wedding Day Schedule (Jan 10)</h2>
+                <div id="timeline-container" class="modern-timeline"></div>
+            </div>
+        </section>
+
+        <!-- Dress Code Guide -->
+        <section class="dresscode-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-heading">Dress Code Summary</h2>
+                <div class="dresscode-grid">
+                    <div class="dress-item"><div class="color-palette haldi"></div><h4>Haldi</h4><p>Yellow</p></div>
+                    <div class="dress-item"><div class="color-palette sangeet"></div><h4>Sangeet</h4><p>Indo-Western</p></div>
+                    <div class="dress-item"><div class="color-palette shadi"></div><h4>Wedding</h4><p>Traditional</p></div>
+                    <div class="dress-item"><div class="color-palette reception"></div><h4>Reception</h4><p>Formal</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-heading">Pre-Wedding & Family Photos</h2>
+                <div class="masonry-grid">
+                    <div class="masonry-item large"><img src="image2.jpg" alt="Couple"></div>
+                    <div class="masonry-item"><img src="image3.jpg" alt="Family"></div>
+                    <div class="masonry-item"><img src="image4.jpg" alt="Couple"></div>
+                    <div class="masonry-item portrait"><img src="image5.jpg" alt="Pre-wedding"></div>
+                    <div class="masonry-item"><img src="image6.jpg" alt="Couple"></div>
+                    <div class="masonry-item large"><img src="image7.jpg" alt="Family"></div>
+                    <div class="masonry-item"><img src="image8.jpg" alt="Pre-wedding"></div>
+                    <div class="masonry-item"><img src="image9.jpg" alt="Couple"></div>
+                    <div class="masonry-item landscape"><img src="image10.jpg" alt="Couple"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue -->
+        <section class="location-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-heading">The Venue</h2>
+                <div class="location-card">
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441989.33032176644!2d77.89730263863039!3d30.06434079458403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092520377b26a7%3A0xa947e0225bea0dac!2sHolly%20Himalayas%20Mountain%20Wedding%20Venue%20-Best%20Luxury%20Destination%20Wedding%20Venue%20Riverside%20Planner%20%7CNear%20Bhaniyawala%20Dehradun%7C!5e0!3m2!1sen!2sin!4v1790714711419!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                    <div class="location-details">
+                        <h3 id="venue-name"></h3>
+                        <p id="venue-address"></p>
+                        <p id="venue-parking" class="parking-info"></p>
+                        <a href="https://maps.app.goo.gl/bEsiiCXQ7R5T3HtT6" target="_blank" class="elegant-btn dark map-btn">Get Directions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- RSVP & Guestbook -->
+        <section class="rsvp-section scroll-reveal" style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <div class="container rsvp-container">
+                <div class="guestbook-area">
+                    <h2 class="section-heading">RSVP & Wishes 💌</h2>
+                    <form id="wishes-form" class="rsvp-form">
+                        <div class="input-group"><input type="text" id="guest-name" placeholder="Your Name" required class="clean-input"></div>
+                        <div class="input-group"><input type="number" id="guest-count" placeholder="Number of Guests" required class="clean-input"></div>
+                        <div class="input-group"><textarea id="guest-msg" placeholder="Your Message for the Couple" required class="clean-input" rows="4"></textarea></div>
+                        <button type="submit" class="elegant-btn dark">Send Wish & RSVP</button>
+                    </form>
+                    <p class="success-msg" id="form-success" style="display:none; color: green; margin-top: 10px;">Your wish has been securely saved!</p>
+                </div>
+                <div class="wishes-display">
+                    <div id="wishes-list-container"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>We can't wait to celebrate with you.</p>
+            <p id="footer-names" class="footer-names"></p>
+            <p id="footer-coordinator" style="margin-top: 40px; font-size: 0.9rem; color: #aaa;"></p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

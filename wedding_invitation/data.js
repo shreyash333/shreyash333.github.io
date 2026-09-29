@@ -1,0 +1,50 @@
+const weddingData = {
+  "welcome": {
+    "pre_text": "Join us for our destination wedding",
+    "names_html": "Lukas <span class=\"amp\">&</span> Lena",
+    "date_range": "7th - 10th January 2027",
+    "button_text": "Enter Invitation"
+  },
+  "live_updates": "🌟 LIVE UPDATE: Welcome drinks will be served at the pool side starting at 4 PM on Jan 7! 🌟 Weather in Dehradun is a pleasant 22°C. 🌟 Can't wait to see you all! 🌟",
+  "hero": {
+    "overline": "We're getting married!",
+    "quote": "\"Two souls with but a single thought, two hearts that beat as one.\""
+  },
+  "story": "It started with a chance encounter at a coffee shop in 2022. Fast forward through countless adventures, deep conversations, and endless laughter, we realized we couldn't imagine life without each other. On a magical evening in the mountains, Lukas popped the question, and Lena said yes! Now, we are so excited to write the next chapter of our lives surrounded by the people we love the most.",
+  "family": {
+    "bride": {
+      "parents": "Mr. Rajesh & Mrs. Sunita Sharma",
+      "siblings": "Rohan Sharma",
+      "grandparents": "Late Shri Om Prakash Sharma"
+    },
+    "groom": {
+      "parents": "Mr. Klaus & Mrs. Maria Brandt",
+      "siblings": "Felix Brandt, Anna Brandt",
+      "grandparents": "Mr. Hans & Mrs. Greta Brandt"
+    }
+  },
+  "events": [
+    { "name": "Engagement", "meta": "🗓️ Thursday, Jan 7 | 🕑 1:00 PM", "dress_code": "👗 Dress Code: Smart Casual", "desc": "The formal ring ceremony to begin our beautiful journey together." },
+    { "name": "Haldi", "meta": "🗓️ Friday, Jan 8 | 🕑 10:00 AM", "dress_code": "👗 Dress Code: Yellow", "desc": "A playful and auspicious turmeric ceremony. Prepare to get messy!" },
+    { "name": "Mehendi", "meta": "🗓️ Friday, Jan 8 | 🕑 4:00 PM", "dress_code": "👗 Dress Code: Vibrant Greens", "desc": "An evening of henna, music, and dance." },
+    { "name": "Sangeet", "meta": "🗓️ Saturday, Jan 9 | 🕑 7:00 PM", "dress_code": "👗 Dress Code: Indo-Western", "desc": "A glamorous night of choreographed dances and musical performances." },
+    { "name": "The Wedding", "meta": "🗓️ Sunday, Jan 10 | 🕑 5:00 PM", "dress_code": "👗 Dress Code: Traditional Indian", "desc": "The sacred vows and pheras.", "is_main": true },
+    { "name": "Reception", "meta": "🗓️ Sunday, Jan 10 | 🕑 9:30 PM", "dress_code": "👗 Dress Code: Formal / Evening Wear", "desc": "A grand feast to celebrate the newlyweds." }
+  ],
+  "timeline": [
+    { "time": "16:00", "title": "Baraat Arrival", "desc": "Dancing our way to the venue!" },
+    { "time": "17:30", "title": "Varmala", "desc": "Garland exchange at sunset." },
+    { "time": "19:00", "title": "Pheras", "desc": "Sacred rounds around the holy fire." },
+    { "time": "21:30", "title": "Grand Dinner", "desc": "A royal feast for all our guests." },
+    { "time": "01:00", "title": "Bidhayi", "desc": "A tearful farewell." }
+  ],
+  "venue": {
+    "name": "Nature Valley Homestay",
+    "address": "Haridwar Rd, near airport, Bhania Wala<br>Dehradun, Uttarakhand 248140",
+    "parking": "🚗 <strong>Parking:</strong> Valet parking is available at the main entrance. Shuttle services from partner hotels will be provided."
+  },
+  "footer": {
+    "names": "L & L",
+    "coordinator": "<strong>Wedding Coordinator:</strong> Priya Sharma (+91 98765 43210)<br>For any travel or accommodation queries, please contact our coordinator."
+  }
+};

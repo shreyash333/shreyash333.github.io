@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 window.scrollBy(0, 1);
             }
-        }, 40);
+        }, 20);
     }
 
     function stopAutoScroll() {

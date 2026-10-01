@@ -23,19 +23,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const diceFaces = ['🎲', '⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
     const playerColors = ['var(--p1)', 'var(--p2)', 'var(--p3)', 'var(--p4)'];
 
-    // Audio Context
+    // Audio Context & Volume
     let audioCtx = null;
+    let masterVolume = 1.0;
+    
+    const volumeSlider = document.getElementById('volume-slider');
+    const muteBtn = document.getElementById('mute-btn');
+
     function initAudio() {
         if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         if (audioCtx.state === 'suspended') audioCtx.resume();
     }
+
+    let previousVolume = 1.0;
+    volumeSlider.addEventListener('input', (e) => {
+        masterVolume = parseFloat(e.target.value);
+        if (masterVolume === 0) muteBtn.textContent = '🔇';
+        else if (masterVolume < 0.5) muteBtn.textContent = '🔉';
+        else muteBtn.textContent = '🔊';
+    });
+
+    muteBtn.addEventListener('click', () => {
+        if (masterVolume > 0) {
+            previousVolume = masterVolume;
+            masterVolume = 0;
+            volumeSlider.value = 0;
+            muteBtn.textContent = '🔇';
+        } else {
+            masterVolume = previousVolume || 1.0;
+            volumeSlider.value = masterVolume;
+            muteBtn.textContent = masterVolume < 0.5 ? '🔉' : '🔊';
+        }
+    });
+
     function playTone(freq, type, duration, vol=0.1) {
         if (!audioCtx) return;
+        const finalVol = vol * masterVolume;
+        if (finalVol <= 0) return;
+        
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = type;
         osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.setValueAtTime(finalVol, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
         osc.connect(gain); gain.connect(audioCtx.destination);
         osc.start(); osc.stop(audioCtx.currentTime + duration);
@@ -43,23 +73,23 @@ document.addEventListener('DOMContentLoaded', () => {
     function playStepSound() { playTone(600, 'sine', 0.1, 0.05); }
     function playDiceSound() { playTone(800, 'square', 0.05, 0.02); }
     function playSnakeSound() {
-        if (!audioCtx) return;
+        if (!audioCtx || masterVolume <= 0) return;
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.frequency.setValueAtTime(400, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 1);
-        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.2 * masterVolume, audioCtx.currentTime);
         gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
         osc.connect(gain); gain.connect(audioCtx.destination);
         osc.start(); osc.stop(audioCtx.currentTime + 1);
     }
     function playLadderSound() {
-        if (!audioCtx) return;
+        if (!audioCtx || masterVolume <= 0) return;
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.frequency.setValueAtTime(300, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.8);
-        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.2 * masterVolume, audioCtx.currentTime);
         gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.8);
         osc.connect(gain); gain.connect(audioCtx.destination);
         osc.start(); osc.stop(audioCtx.currentTime + 0.8);

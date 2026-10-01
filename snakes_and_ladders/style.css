@@ -83,6 +83,14 @@ button { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600;
 .p-name { font-weight: 600; font-size: 1.1rem; }
 .p-pos { font-size: 1.2rem; font-weight: 700; color: rgba(255,255,255,0.5); }
 
+/* Volume Controls */
+.volume-control { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; background: rgba(0,0,0,0.2); padding: 12px 15px; border-radius: 12px; }
+.icon-btn { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 5px; color: var(--text); display: flex; justify-content: center; align-items: center; transition: transform 0.2s; }
+.icon-btn:hover { transform: scale(1.1); }
+#volume-slider { flex: 1; -webkit-appearance: none; appearance: none; height: 6px; background: rgba(255,255,255,0.1); border-radius: 5px; outline: none; }
+#volume-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 0 10px var(--primary-glow); }
+#volume-slider::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 0 10px var(--primary-glow); border: none; }
+
 .dice-section { text-align: center; background: rgba(0,0,0,0.2); padding: 25px; border-radius: 16px; margin-bottom: 20px; }
 .status { font-size: 1.2rem; font-weight: 500; margin-bottom: 15px; min-height: 28px; }
 .dice-container { font-size: 4rem; height: 80px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; }

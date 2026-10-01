@@ -23,6 +23,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const diceFaces = ['🎲', '⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
     const playerColors = ['var(--p1)', 'var(--p2)', 'var(--p3)', 'var(--p4)'];
 
+    // Audio Context
+    let audioCtx = null;
+    function initAudio() {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+    }
+    function playTone(freq, type, duration, vol=0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(); osc.stop(audioCtx.currentTime + duration);
+    }
+    function playStepSound() { playTone(600, 'sine', 0.1, 0.05); }
+    function playDiceSound() { playTone(800, 'square', 0.05, 0.02); }
+    function playSnakeSound() {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 1);
+        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(); osc.stop(audioCtx.currentTime + 1);
+    }
+    function playLadderSound() {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.8);
+        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.8);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.8);
+    }
+    function playWinSound() { 
+        playTone(440, 'triangle', 0.2, 0.1); 
+        setTimeout(() => playTone(554, 'triangle', 0.2, 0.1), 200); 
+        setTimeout(() => playTone(659, 'triangle', 0.6, 0.1), 400); 
+    }
+
     // 1. Initialize Board HTML
     function initBoard() {
         board.innerHTML = '';
@@ -90,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Setup Game
     document.querySelectorAll('.player-select button').forEach(btn => {
         btn.addEventListener('click', (e) => {
+            initAudio();
             const numPlayers = parseInt(e.target.getAttribute('data-players'));
             startGame(numPlayers);
         });
@@ -176,7 +224,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    rollBtn.addEventListener('click', () => {
+    async function movePieceStepByStep(playerIndex, start, end) {
+        const p = players[playerIndex];
+        for (let current = start + 1; current <= end; current++) {
+            p.pos = current;
+            updatePiecePosition(playerIndex);
+            playStepSound();
+            await new Promise(resolve => setTimeout(resolve, 300));
+        }
+    }
+
+    rollBtn.addEventListener('click', async () => {
         if (isAnimating) return;
         isAnimating = true;
         rollBtn.disabled = true;
@@ -184,50 +242,60 @@ document.addEventListener('DOMContentLoaded', () => {
         const player = players[currentPlayerIndex];
         diceEl.parentElement.classList.add('rolling');
         statusText.textContent = "Rolling...";
+        
+        // Play dice rolling sound a few times
+        let diceRollInterval = setInterval(() => playDiceSound(), 100);
 
-        setTimeout(() => {
-            diceEl.parentElement.classList.remove('rolling');
-            const roll = Math.floor(Math.random() * 6) + 1;
-            diceEl.textContent = diceFaces[roll];
-            
-            let targetPos = player.pos + roll;
-            
-            if (targetPos > 100) {
-                statusText.textContent = `Rolled ${roll}. Needs exactly ${100 - player.pos}!`;
-                statusText.style.color = '#fbbf24';
-                finishTurn();
-                return;
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        clearInterval(diceRollInterval);
+        diceEl.parentElement.classList.remove('rolling');
+        
+        const roll = Math.floor(Math.random() * 6) + 1;
+        diceEl.textContent = diceFaces[roll];
+        
+        let targetPos = player.pos + roll;
+        
+        if (targetPos > 100) {
+            statusText.textContent = `Rolled ${roll}. Needs exactly ${100 - player.pos}!`;
+            statusText.style.color = '#fbbf24';
+            finishTurn();
+            return;
+        }
+
+        statusText.textContent = `Player ${currentPlayerIndex + 1} rolled a ${roll}!`;
+        
+        // Animate piece step by step
+        await movePieceStepByStep(currentPlayerIndex, player.pos, targetPos);
+
+        // Wait slightly before checking jumps
+        await new Promise(resolve => setTimeout(resolve, 300));
+
+        if (allJumps[player.pos]) {
+            const newPos = allJumps[player.pos];
+            if (ladders[player.pos]) {
+                statusText.textContent = "Ladder! Climbing up! 🪜";
+                statusText.style.color = '#10b981';
+                playLadderSound();
             }
-
-            statusText.textContent = `Player ${currentPlayerIndex + 1} rolled a ${roll}!`;
-            player.pos = targetPos;
+            if (snakes[player.pos]) {
+                statusText.textContent = "Oh no! A snake! 🐍";
+                statusText.style.color = '#ef4444';
+                playSnakeSound();
+            }
+            
+            player.pos = newPos;
             updatePiecePosition(currentPlayerIndex);
-
-            // Wait for piece to move, then check jumps
-            setTimeout(() => {
-                if (allJumps[player.pos]) {
-                    const newPos = allJumps[player.pos];
-                    if (ladders[player.pos]) {
-                        statusText.textContent = "Ladder! Climbing up! 🪜";
-                        statusText.style.color = '#10b981';
-                    }
-                    if (snakes[player.pos]) {
-                        statusText.textContent = "Oh no! A snake! 🐍";
-                        statusText.style.color = '#ef4444';
-                    }
-                    
-                    player.pos = newPos;
-                    updatePiecePosition(currentPlayerIndex);
-                }
-                
-                if (player.pos === 100) {
-                    showWinScreen(currentPlayerIndex);
-                } else {
-                    finishTurn();
-                }
-            }, 600);
-
-        }, 500); // dice roll duration
+            
+            await new Promise(resolve => setTimeout(resolve, 800)); // wait for jump animation
+        }
+        
+        if (player.pos === 100) {
+            playWinSound();
+            showWinScreen(currentPlayerIndex);
+        } else {
+            finishTurn();
+        }
     });
 
     function finishTurn() {

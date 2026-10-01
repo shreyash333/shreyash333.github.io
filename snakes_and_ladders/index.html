@@ -2,31 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snakes & Ladders - Premium Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Snakes & Ladders - Premium Multiplayer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="game-container">
-        <header>
+    <!-- Background Elements -->
+    <div class="ambient-bg"></div>
+
+    <!-- Setup Screen -->
+    <div id="setup-screen" class="screen active">
+        <div class="glass-panel text-center setup-panel">
             <h1>Snakes <span>&</span> Ladders</h1>
-            <p class="subtitle">Premium Edition</p>
-        </header>
-
-        <div class="controls-panel">
-            <div class="status" id="status-text">Roll the dice to start!</div>
-            <div class="dice-container">
-                <div class="dice" id="dice">🎲</div>
+            <p class="subtitle">Select Number of Players</p>
+            <div class="player-select">
+                <button class="glow-btn" data-players="2">2 Players</button>
+                <button class="glow-btn" data-players="3">3 Players</button>
+                <button class="glow-btn" data-players="4">4 Players</button>
             </div>
-            <button id="roll-btn" class="glow-btn">Roll Dice</button>
-            <button id="reset-btn" class="outline-btn">Reset Game</button>
         </div>
+    </div>
 
-        <div class="board-wrapper">
-            <div class="board" id="board"></div>
-            <svg class="overlay" id="svg-overlay"></svg>
-            <div class="player" id="player"></div>
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-layout">
+            <aside class="sidebar glass-panel">
+                <header class="sidebar-header">
+                    <h2>Snakes <span>&</span> Ladders</h2>
+                </header>
+                
+                <div id="players-list" class="players-list">
+                    <!-- Player cards injected here -->
+                </div>
+
+                <div class="dice-section">
+                    <div class="status" id="status-text">Ready to play!</div>
+                    <div class="dice-container"><div class="dice" id="dice">🎲</div></div>
+                    <button id="roll-btn" class="glow-btn roll-btn">Roll Dice</button>
+                </div>
+                
+                <button id="reset-btn" class="outline-btn small-btn">End Game</button>
+            </aside>
+
+            <main class="board-area">
+                <div class="board-wrapper">
+                    <div class="board" id="board"></div>
+                    <svg class="overlay" id="svg-overlay"></svg>
+                    <div id="pieces-container"></div>
+                </div>
+            </main>
         </div>
     </div>
 

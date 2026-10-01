@@ -1,27 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Elements
+    const setupScreen = document.getElementById('setup-screen');
+    const gameScreen = document.getElementById('game-screen');
     const board = document.getElementById('board');
     const svgOverlay = document.getElementById('svg-overlay');
-    const player = document.getElementById('player');
+    const piecesContainer = document.getElementById('pieces-container');
+    const playersListEl = document.getElementById('players-list');
     const rollBtn = document.getElementById('roll-btn');
     const resetBtn = document.getElementById('reset-btn');
     const diceEl = document.getElementById('dice');
     const statusText = document.getElementById('status-text');
 
-    let currentPos = 0;
+    // Game State
+    let players = [];
+    let currentPlayerIndex = 0;
     let isAnimating = false;
     let cellCoords = {};
 
-    const ladders = { 4: 14, 9: 31, 20: 38, 28: 84, 40: 59, 51: 67, 71: 91, 80: 99 }; // 80 to 99 so win isn't instant
+    const ladders = { 4: 14, 9: 31, 20: 38, 28: 84, 40: 59, 51: 67, 71: 91, 80: 99 };
     const snakes = { 17: 7, 54: 34, 62: 19, 64: 60, 87: 24, 93: 73, 95: 75, 99: 78 };
     const allJumps = { ...ladders, ...snakes };
-
     const diceFaces = ['🎲', '⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+    const playerColors = ['var(--p1)', 'var(--p2)', 'var(--p3)', 'var(--p4)'];
 
+    // 1. Initialize Board HTML
     function initBoard() {
         board.innerHTML = '';
         let cellNumbers = [];
-        
-        // Generate zig-zag pattern
         for(let r = 9; r >= 0; r--) {
             let row = [];
             for(let c = 1; c <= 10; c++) row.push(r * 10 + c);
@@ -32,25 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
         cellNumbers.forEach((num, index) => {
             const cell = document.createElement('div');
             cell.className = `cell ${index % 2 === 0 ? 'alt-bg' : ''}`;
-            if (num === 100) cell.classList.add('win-cell');
+            if (num === 100) {
+                cell.classList.add('win-cell');
+                cell.innerHTML = '👑<br>100';
+            } else {
+                cell.textContent = num;
+            }
             cell.id = `cell-${num}`;
-            cell.textContent = num;
             board.appendChild(cell);
         });
 
-        // Small delay to ensure DOM layout is complete before measuring
         setTimeout(() => {
             measureCells();
             drawLines();
         }, 100);
     }
 
+    // 2. Measure Cells for SVG and Pieces
     function measureCells() {
         cellCoords = {};
         for(let i = 1; i <= 100; i++) {
             const cell = document.getElementById(`cell-${i}`);
             if(cell) {
-                // Get center of cell relative to board wrapper
                 cellCoords[i] = {
                     x: cell.offsetLeft + cell.offsetWidth / 2,
                     y: cell.offsetTop + cell.offsetHeight / 2
@@ -59,9 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 3. Draw Snakes and Ladders
     function drawLines() {
         svgOverlay.innerHTML = '';
-        
         const drawEdge = (startNode, endNode, typeClass) => {
             const start = cellCoords[startNode];
             const end = cellCoords[endNode];
@@ -75,30 +83,105 @@ document.addEventListener('DOMContentLoaded', () => {
             line.setAttribute('class', typeClass);
             svgOverlay.appendChild(line);
         };
-
         for(let [start, end] of Object.entries(ladders)) drawEdge(start, end, 'line-ladder');
         for(let [start, end] of Object.entries(snakes)) drawEdge(start, end, 'line-snake');
     }
 
-    function updatePlayerPosition(pos) {
-        if (pos === 0) {
-            player.style.opacity = '0';
+    // 4. Setup Game
+    document.querySelectorAll('.player-select button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const numPlayers = parseInt(e.target.getAttribute('data-players'));
+            startGame(numPlayers);
+        });
+    });
+
+    function startGame(numPlayers) {
+        players = [];
+        playersListEl.innerHTML = '';
+        piecesContainer.innerHTML = '';
+        currentPlayerIndex = 0;
+        
+        // Remove old win overlay if exists
+        const oldWin = document.querySelector('.win-overlay');
+        if(oldWin) oldWin.remove();
+
+        for(let i = 0; i < numPlayers; i++) {
+            players.push({ id: i, pos: 0, color: playerColors[i] });
+            
+            // Create Sidebar Card
+            const card = document.createElement('div');
+            card.className = `player-card ${i === 0 ? 'active' : ''}`;
+            card.id = `pcard-${i}`;
+            card.innerHTML = `
+                <div class="player-info">
+                    <div class="p-indicator" style="background: ${playerColors[i]}"></div>
+                    <span class="p-name">Player ${i+1}</span>
+                </div>
+                <div class="p-pos" id="ppos-${i}">Start</div>
+            `;
+            playersListEl.appendChild(card);
+
+            // Create Board Piece
+            const piece = document.createElement('div');
+            piece.className = `piece p${i}`;
+            piece.id = `piece-${i}`;
+            piecesContainer.appendChild(piece);
+        }
+
+        setupScreen.classList.remove('active');
+        gameScreen.classList.add('active');
+        
+        setTimeout(() => {
+            measureCells();
+            drawLines();
+        }, 100);
+
+        updateTurnUI();
+    }
+
+    // 5. Turn Logic
+    function updateTurnUI() {
+        document.querySelectorAll('.player-card').forEach((el, idx) => {
+            el.classList.toggle('active', idx === currentPlayerIndex);
+        });
+        statusText.innerHTML = `Player ${currentPlayerIndex + 1}'s Turn <span style="color:${playerColors[currentPlayerIndex]}">●</span>`;
+        statusText.style.color = 'var(--text)';
+        rollBtn.disabled = false;
+        diceEl.textContent = diceFaces[0];
+    }
+
+    function updatePiecePosition(playerIndex) {
+        const p = players[playerIndex];
+        const pieceEl = document.getElementById(`piece-${playerIndex}`);
+        const posEl = document.getElementById(`ppos-${playerIndex}`);
+        
+        if (p.pos === 0) {
+            pieceEl.style.opacity = '0';
+            posEl.textContent = 'Start';
             return;
         }
-        player.style.opacity = '1';
-        const target = cellCoords[pos];
+        
+        pieceEl.style.opacity = '1';
+        posEl.textContent = p.pos;
+        
+        const target = cellCoords[p.pos];
         if (target) {
-            player.style.left = `${target.x}px`;
-            player.style.top = `${target.y}px`;
+            // Offset slightly so multiple pieces can be seen on same tile
+            const offsets = [
+                {x: -8, y: -8}, {x: 8, y: 8}, {x: -8, y: 8}, {x: 8, y: -8}
+            ];
+            const offset = offsets[playerIndex];
+            pieceEl.style.left = `${target.x + offset.x}px`;
+            pieceEl.style.top = `${target.y + offset.y}px`;
         }
     }
 
     rollBtn.addEventListener('click', () => {
         if (isAnimating) return;
-        if (currentPos === 100) return;
-
         isAnimating = true;
         rollBtn.disabled = true;
+        
+        const player = players[currentPlayerIndex];
         diceEl.parentElement.classList.add('rolling');
         statusText.textContent = "Rolling...";
 
@@ -107,34 +190,41 @@ document.addEventListener('DOMContentLoaded', () => {
             const roll = Math.floor(Math.random() * 6) + 1;
             diceEl.textContent = diceFaces[roll];
             
-            let targetPos = currentPos + roll;
+            let targetPos = player.pos + roll;
+            
             if (targetPos > 100) {
-                statusText.textContent = `Rolled ${roll}. Too high!`;
+                statusText.textContent = `Rolled ${roll}. Needs exactly ${100 - player.pos}!`;
+                statusText.style.color = '#fbbf24';
                 finishTurn();
                 return;
             }
 
-            statusText.textContent = `Rolled a ${roll}!`;
-            currentPos = targetPos;
-            updatePlayerPosition(currentPos);
+            statusText.textContent = `Player ${currentPlayerIndex + 1} rolled a ${roll}!`;
+            player.pos = targetPos;
+            updatePiecePosition(currentPlayerIndex);
 
-            // Check for jumps after piece lands
+            // Wait for piece to move, then check jumps
             setTimeout(() => {
-                if (allJumps[currentPos]) {
-                    const newPos = allJumps[currentPos];
-                    if (ladders[currentPos]) statusText.textContent = "Ladder! Climbing up!";
-                    if (snakes[currentPos]) statusText.textContent = "Oh no! A snake!";
+                if (allJumps[player.pos]) {
+                    const newPos = allJumps[player.pos];
+                    if (ladders[player.pos]) {
+                        statusText.textContent = "Ladder! Climbing up! 🪜";
+                        statusText.style.color = '#10b981';
+                    }
+                    if (snakes[player.pos]) {
+                        statusText.textContent = "Oh no! A snake! 🐍";
+                        statusText.style.color = '#ef4444';
+                    }
                     
-                    currentPos = newPos;
-                    updatePlayerPosition(currentPos);
+                    player.pos = newPos;
+                    updatePiecePosition(currentPlayerIndex);
                 }
                 
-                if (currentPos === 100) {
-                    statusText.textContent = "🎉 YOU WIN! 🎉";
-                    player.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                if (player.pos === 100) {
+                    showWinScreen(currentPlayerIndex);
+                } else {
+                    finishTurn();
                 }
-                
-                finishTurn();
             }, 600);
 
         }, 500); // dice roll duration
@@ -142,24 +232,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function finishTurn() {
         setTimeout(() => {
+            currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
             isAnimating = false;
-            if (currentPos !== 100) rollBtn.disabled = false;
-        }, 400);
+            updateTurnUI();
+        }, 1200);
+    }
+
+    function showWinScreen(winnerIndex) {
+        const overlay = document.createElement('div');
+        overlay.className = 'win-overlay';
+        overlay.innerHTML = `
+            <h2 style="color: ${playerColors[winnerIndex]}">Player ${winnerIndex + 1} Wins! 🎉</h2>
+            <button class="glow-btn" onclick="location.reload()">Play Again</button>
+        `;
+        document.querySelector('.board-wrapper').appendChild(overlay);
     }
 
     resetBtn.addEventListener('click', () => {
-        currentPos = 0;
-        diceEl.textContent = diceFaces[0];
-        statusText.textContent = "Roll the dice to start!";
-        player.style.transform = 'translate(-50%, -50%)';
-        updatePlayerPosition(0);
-        rollBtn.disabled = false;
+        gameScreen.classList.remove('active');
+        setupScreen.classList.add('active');
     });
 
     window.addEventListener('resize', () => {
-        measureCells();
-        drawLines();
-        updatePlayerPosition(currentPos);
+        if (gameScreen.classList.contains('active')) {
+            measureCells();
+            drawLines();
+            players.forEach((p, idx) => updatePiecePosition(idx));
+        }
     });
 
     initBoard();

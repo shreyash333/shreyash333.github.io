@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snakes & Ladders - Premium Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Snakes <span>&</span> Ladders</h1>
+            <p class="subtitle">Premium Edition</p>
+        </header>
+
+        <div class="controls-panel">
+            <div class="status" id="status-text">Roll the dice to start!</div>
+            <div class="dice-container">
+                <div class="dice" id="dice">🎲</div>
+            </div>
+            <button id="roll-btn" class="glow-btn">Roll Dice</button>
+            <button id="reset-btn" class="outline-btn">Reset Game</button>
+        </div>
+
+        <div class="board-wrapper">
+            <div class="board" id="board"></div>
+            <svg class="overlay" id="svg-overlay"></svg>
+            <div class="player" id="player"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
